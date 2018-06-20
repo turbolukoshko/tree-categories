@@ -12,11 +12,11 @@
     <h1>Tree Categories! ✅</h1>
 
     {% for category in categories %}
-        <h2>{{ category.title }}</h2>
+        <h2><a href="{{ path('categories') }}">{{ category.title }}</a></h2>
         {% for child in category.children %}
-            <h3>{{ child.title }}</h3>
+            <h3><a href="{{ path('category', {'categorySlug' : child.slug})}}">{{ child.title }}</a></h3>
             {% for product in child.products %}
-                <h3>{{ product.title }}</h3>
+                <h3><a href="{{ path('product', {'productSlug' : product.slug}) }}">{{ product.title }}</a></h3>
             {% endfor %}
             {% endfor %}
     {% endfor %}
